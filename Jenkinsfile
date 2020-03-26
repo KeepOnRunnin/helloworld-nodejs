@@ -32,7 +32,7 @@ pipeline {
         echo "TODO - build and push image"
     stage('Evaluation')
               when {
-        afterAgent true
+        beforeAgent true
         branch 'master'
       }
       steps {
