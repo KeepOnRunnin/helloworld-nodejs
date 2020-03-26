@@ -30,7 +30,12 @@ pipeline {
       }
       steps {
         echo "TODO - build and push image"
-    stage('Evaluation')      
+    stage('Evaluation')
+              when {
+        afterAgent true
+        branch 'master'
+      }
+      steps {
         nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: false, iqApplication: selectedApplication('KeepOnRunnin'), iqStage: 'build', jobCredentialsId: ''
       }
     }
